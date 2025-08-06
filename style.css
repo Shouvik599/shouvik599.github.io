@@ -1,0 +1,238 @@
+/* style.css */
+
+body {
+    margin: 0;
+    overflow: hidden; /* Hide scrollbars as symbols fall */
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    background: linear-gradient(to bottom, #2c3e50, #4a69bd); /* Deep blue gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1; /* Ensure body content is below canvas */
+}
+
+#fallingSymbolsCanvas {
+    position: fixed; /* Position fixed to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Place canvas behind the letter */
+}
+
+.envelope-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 2; /* Ensure wrapper is above canvas */
+}
+
+.envelope {
+    width: 300px;
+    height: 200px;
+    background-color: #f0f0f0; /* Light grey envelope */
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide overflow for flap */
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #d0d0d0; /* Slightly darker flap */
+    transform-origin: top;
+    transition: transform 0.8s ease-out;
+    clip-path: polygon(0 0, 100% 0, 50% 100%); /* Triangle shape for the flap */
+    z-index: 3;
+}
+
+.envelope-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    z-index: 2;
+}
+
+.envelope-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8em;
+    color: #333;
+    z-index: 4; /* Above flap */
+    transition: opacity 0.8s ease-out;
+}
+
+/* Envelope open state */
+.envelope.open {
+    transform: translateY(-50px) scale(0.8); /* Move up and shrink slightly */
+    opacity: 0;
+    pointer-events: none; /* Disable clicks after opening */
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg); /* Open the flap */
+}
+
+.envelope.open .envelope-text {
+    opacity: 0; /* Fade out text */
+}
+
+
+.love-letter-container {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white background */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border-radius: 15px;
+    padding: 40px;
+    margin: 20px;
+    max-width: 700px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: absolute; /* Position absolutely within wrapper */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Start slightly below */
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* Fade in animation */
+    pointer-events: none; /* Initially not clickable */
+}
+
+.love-letter-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; /* Enable clicks after visible */
+}
+
+.letter-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+    color: #ffdddd; /* Soft pinkish-white */
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.letter-paragraph {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #e0e0e0; /* Light grey for readability */
+}
+
+.letter-signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8em;
+    color: #ffdddd;
+    margin-top: 30px;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: 2px solid #ffdddd;
+    color: #ffdddd;
+    font-size: 1.2em;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    z-index: 10; /* Ensure it's above letter content */
+}
+
+.close-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .love-letter-container {
+        padding: 30px;
+        margin: 15px;
+    }
+
+    .letter-title {
+        font-size: 2.5em;
+    }
+
+    .letter-paragraph {
+        font-size: 1em;
+    }
+
+    .letter-signature {
+        font-size: 1.5em;
+    }
+
+    .envelope {
+        width: 250px;
+        height: 170px;
+    }
+
+    .envelope-text {
+        font-size: 1.5em;
+    }
+
+    .close-button {
+        top: 10px;
+        right: 10px;
+        width: 25px;
+        height: 25px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .love-letter-container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .letter-title {
+        font-size: 2em;
+    }
+
+    .letter-paragraph {
+        font-size: 0.9em;
+    }
+
+    .letter-signature {
+        font-size: 1.3em;
+    }
+
+    .envelope {
+        width: 200px;
+        height: 140px;
+    }
+
+    .envelope-text {
+        font-size: 1.2em;
+    }
+
+    .close-button {
+        top: 8px;
+        right: 8px;
+        width: 20px;
+        height: 20px;
+        font-size: 0.9em;
+    }
+}
