@@ -109,6 +109,17 @@ body {
     transform: translateY(20px); /* Start slightly below */
     transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* Fade in animation */
     pointer-events: none; /* Initially not clickable */
+
+    /* Added for scrolling */
+    max-height: 80vh; /* Set a maximum height relative to viewport height */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.love-letter-container::-webkit-scrollbar {
+    display: none;
 }
 
 .love-letter-container.visible {
@@ -170,6 +181,7 @@ body {
         padding: 25px; /* Further reduced padding */
         margin: 10px; /* Further reduced margin */
         max-width: 90%; /* Use percentage for better responsiveness */
+        max-height: 75vh; /* Adjusted max-height for tablets */
     }
 
     .letter-title {
@@ -207,6 +219,7 @@ body {
         padding: 15px; /* Even more reduced padding */
         margin: 5px; /* Even more reduced margin */
         max-width: 95%; /* Max width for very small screens */
+        max-height: 70vh; /* Adjusted max-height for mobile */
     }
 
     .letter-title {
