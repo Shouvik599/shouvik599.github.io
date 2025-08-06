@@ -99,9 +99,9 @@ body {
     background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white background */
     backdrop-filter: blur(10px); /* Frosted glass effect */
     border-radius: 15px;
-    padding: 40px;
-    margin: 20px;
-    max-width: 700px;
+    padding: 30px; /* Reduced padding */
+    margin: 15px; /* Reduced margin */
+    max-width: 600px; /* Reduced max-width for a smaller letter */
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     position: absolute; /* Position absolutely within wrapper */
@@ -119,36 +119,36 @@ body {
 
 .letter-title {
     font-family: 'Dancing Script', cursive;
-    font-size: 3em;
+    font-size: 2.5em; /* Slightly reduced font size */
     color: #ffdddd; /* Soft pinkish-white */
-    margin-bottom: 25px;
+    margin-bottom: 20px; /* Reduced margin */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .letter-paragraph {
-    font-size: 1.2em;
-    line-height: 1.8;
-    margin-bottom: 20px;
+    font-size: 1.1em; /* Slightly reduced font size */
+    line-height: 1.7; /* Adjusted line height */
+    margin-bottom: 15px; /* Reduced margin */
     color: #e0e0e0; /* Light grey for readability */
 }
 
 .letter-signature {
     font-family: 'Dancing Script', cursive;
-    font-size: 1.8em;
+    font-size: 1.6em; /* Slightly reduced font size */
     color: #ffdddd;
-    margin-top: 30px;
+    margin-top: 25px; /* Reduced margin */
 }
 
 .close-button {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 10px; /* Adjusted position */
+    right: 10px; /* Adjusted position */
     background: none;
     border: 2px solid #ffdddd;
     color: #ffdddd;
-    font-size: 1.2em;
-    width: 30px;
-    height: 30px;
+    font-size: 1em; /* Slightly reduced font size */
+    width: 28px; /* Adjusted size */
+    height: 28px; /* Adjusted size */
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -167,20 +167,21 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .love-letter-container {
-        padding: 30px;
-        margin: 15px;
+        padding: 25px; /* Further reduced padding */
+        margin: 10px; /* Further reduced margin */
+        max-width: 90%; /* Use percentage for better responsiveness */
     }
 
     .letter-title {
-        font-size: 2.5em;
+        font-size: 2.2em;
     }
 
     .letter-paragraph {
-        font-size: 1em;
+        font-size: 0.95em;
     }
 
     .letter-signature {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
 
     .envelope {
@@ -193,30 +194,31 @@ body {
     }
 
     .close-button {
-        top: 10px;
-        right: 10px;
-        width: 25px;
-        height: 25px;
-        font-size: 1em;
+        top: 8px;
+        right: 8px;
+        width: 22px;
+        height: 22px;
+        font-size: 0.9em;
     }
 }
 
 @media (max-width: 480px) {
     .love-letter-container {
-        padding: 20px;
-        margin: 10px;
+        padding: 15px; /* Even more reduced padding */
+        margin: 5px; /* Even more reduced margin */
+        max-width: 95%; /* Max width for very small screens */
     }
 
     .letter-title {
-        font-size: 2em;
+        font-size: 1.8em;
     }
 
     .letter-paragraph {
-        font-size: 0.9em;
+        font-size: 0.85em;
     }
 
     .letter-signature {
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
 
     .envelope {
@@ -229,10 +231,10 @@ body {
     }
 
     .close-button {
-        top: 8px;
-        right: 8px;
-        width: 20px;
-        height: 20px;
-        font-size: 0.9em;
+        top: 5px;
+        right: 5px;
+        width: 18px;
+        height: 18px;
+        font-size: 0.8em;
     }
 }
